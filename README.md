@@ -10,3 +10,4 @@
 	4：padding是用来使所有输入的图像尺寸一致。
 	5：卷积核进行工作的时候，默认扫描的步伐是1，但是也可以自己设置，步伐越大，就越粗糙
 
+参考网址：https://www.bilibili.com/video/BV1j7411f7Ru?from=search&seid=3220155990488533125&spm_id_from=333.337.0.0
