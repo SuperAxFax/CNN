@@ -2,23 +2,11 @@
 
 > 基于Java实现CNN
 
-## 构建CNN
+## CNN中基础知识点
 
-	LayerBuilder builder = new LayerBuilder();
-	builder.addLayer(Layer.buildInputLayer(new Size(28, 28)));
-	builder.addLayer(Layer.buildConvLayer(6, new Size(5, 5)));
-	builder.addLayer(Layer.buildSampLayer(new Size(2, 2)));
-	builder.addLayer(Layer.buildConvLayer(12, new Size(5, 5)));
-	builder.addLayer(Layer.buildSampLayer(new Size(2, 2)));
-	builder.addLayer(Layer.buildOutputLayer(10));
-	CNN cnn = new CNN(builder, 50);
-	
-## 运行MNIST数据集
-	
-	String fileName = "data/train.format";
-	Dataset dataset = Dataset.load(fileName, ",", 784);
-	cnn.train(dataset, 100);
-	Dataset testset = Dataset.load("data/test.format", ",", -1);
-	cnn.predict(testset, "data/test.predict");
+	1：sigmoid以及输出层softMax都是为了在提取完特征之后来做分类或者做回归。
+	2：Loss对应的是真实值与预测值之间的一个差距进而去进行拟合。
+	3：卷积核的权值w,b一开始需要我们自己人为进行初始化。
+	4：padding是用来使所有输入的图像尺寸一致。
+	5：卷积核进行工作的时候，默认扫描的步伐是1，但是也可以自己设置，步伐越大，就越粗糙
 
-计算精度可以达到97.8%。
